@@ -33,6 +33,7 @@ CONTENTS				*macdown-contents*
 
 INTRODUCTION		|macdown-introduction|
 INSTALLATION		|macdown-installation|
+REQUIREMENT		|macdown-requirement|
 INTERFACE		|macdown-interface|
   COMMANDS			|macdown-commands|
   VARIABLES			|macdown-variables|
@@ -63,6 +64,11 @@ installed via |vim-plug|:
 
 Follow the installation guide of |vimproc| if you got problem during
 installation.
+
+==============================================================================
+REQUIREMENT				*macdown-requirement*
+
+You have to install | Nodejs | https: //nodejs.org if you use default markdown parser.
 
 ==============================================================================
 INTERFACE				*macdown-interface*

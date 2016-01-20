@@ -99,9 +99,19 @@ VARIABLES 				*macdown-variables*
 
 					*'macdown_marked_programme'*
 
-If you want to use a new markdown parse you can set this global variables. eg:
+Default: 'marked'
+
+You can make macdown.vim use misaka https://github.com/FSX/misaka for markdown
+parse, it's using Python and almost 4x times faster than 'marked'
 >
-	let g:macdown_marked_programme = '~/bin/misaka'
+	let g:macdown_marked_programme = 'misaka'
+
+Note: misaka need some python dependencies to work, you can install them via:
+>
+	pip install houdini misaka pygments
+
+`sudo` might be required
+
 
 ==============================================================================
 CHANGELOG				 *macdown-changelog*

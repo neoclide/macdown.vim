@@ -1,0 +1,43 @@
+#!/usr/bin/env python
+
+from __future__ import print_function
+import re
+import sys
+import os
+import houdini as h
+import misaka as m
+from pygments import highlight
+from pygments.formatters import HtmlFormatter
+from pygments.lexers import get_lexer_by_name
+
+if len(sys.argv) > 1:
+    title = sys.argv[1]
+else:
+    title = ''
+
+class HighlighterRenderer(m.HtmlRenderer):
+    def blockcode(self, text, lang):
+        if not lang:
+            return '\n<pre><code>{}</code></pre>\n'.format(
+                h.escape_html(text.strip()))
+
+        lexer = get_lexer_by_name(lang, stripall=True)
+        formatter = HtmlFormatter()
+
+        return highlight(text, lexer, formatter)
+
+renderer = HighlighterRenderer()
+md = m.Markdown(renderer, extensions=('tables', 'fenced-code', 'footnotes', 'autolink'))
+
+content = ''
+for line in sys.stdin:
+    content = content + line
+
+with open(os.path.join(os.path.dirname(__file__), '../template/template-misaka.html'), 'r') as f:
+    for line in f:
+        if '${title}' in line:
+            print(line.replace('${title}', title, 1), end='')
+        elif '${content}' in line:
+            print(line.replace('${content}', md(content), 1), end='')
+        else:
+            print(line, end='')

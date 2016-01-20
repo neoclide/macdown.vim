@@ -44,9 +44,22 @@ The chrome page would be refreshed on CursorHold and BufWrite
 
 ## Configuration
 
-You can configure almost anything, see:
-[doc/macdown.txt](https://github.com/chemzqm/macdown.vim/blob/master/doc/macdown.txt)
+By default `macdown.vim` using [markit](https://github.com/lepture/markit) for
+markdown parsing, it's already copied inside this repository, but if need speed,
+you can use [misaka](https://github.com/FSX/misaka) by set global variable:
 
+  let g:macdown_marked_programme = 'misaka'
+
+It's almost 4 times faster than markit, but you need to install python
+dependencies:
+
+  pip install houdini misaka pygments
+
+`sudo` might be required.
+
+You can also make your own parse, it's just create a excutable file inside
+`macdown.vim/bin` which accept markdown content from stdin and output html to
+stdout.
 
 ## TODO
 

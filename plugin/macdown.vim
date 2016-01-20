@@ -5,15 +5,15 @@ let did_macdown_loaded = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-let s:marked = expand('<sfile>:p:h:h') . '/bin/marked'
+let s:programme = get(g:, 'macdown_marked_programme', 'marked')
+let s:marked = expand('<sfile>:p:h:h') . '/bin/' . s:programme
 
 function! s:Preview()
   if get(b:, 'macdown_auto_preview', 0) == 0
     return
   endif
   let dest = get(b:, 'macdown_dest', tempname())
-  let marked = get(g:, 'macdown_marked_programme', s:marked)
-  silent call macdown#preview(marked, dest)
+  silent call macdown#preview(s:marked, dest)
 endfunction
 
 function! s:AutoPreview()
@@ -29,8 +29,7 @@ endfunction
 
 function! s:VisualPreview(start, end)
   let dest = get(b:, 'macdown_dest', tempname())
-  let marked = get(g:, 'macdown_marked_programme', s:marked)
-  call macdown#preview(marked, dest, a:start, a:end)
+  call macdown#preview(s:marked, dest, a:start, a:end)
 endfunction
 
 function! s:OnVimLeave()

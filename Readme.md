@@ -4,10 +4,12 @@ A simplified and flexible markdown preview for vim user on Mac.
 
 Using applescript instead of a server to enhance the exprience of live preview.
 
-## Basic features
+## Features
 
 * Preview in Chrome with range and auto reload support.
+* Auto close Chrome tab on buffer delete and vim exit.
 * Async markdown parse.
+* GFM enabled, code highlight
 
 ## Install
 

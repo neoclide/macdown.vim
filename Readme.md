@@ -42,7 +42,9 @@ To toggle auto preview for current file, type:
     :PreviewAuto
 
 The corresponding chrome tab would be activated and refreshed on CursorHold and
-BufWrite
+BufWrite. A handy remap could be:
+
+    nnoremap <C-p> :PreviewAuto<CR>
 
 ## Configuration
 

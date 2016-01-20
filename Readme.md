@@ -17,8 +17,8 @@ Take [vundle](https://github.com/VundleVim/Vundle.vim) as example:
 
     Plugin 'chemzqm/macdown.vim'
 
-[vimproc.vim](https: //github.com/Shougo/vimproc.vim) is needed for processing
-  markdown files in async.
+If you need async markdown parse, just install
+[vimproc.vim](https: //github.com/Shougo/vimproc.vim)
 
     Plugin 'Shougo/vimproc.vim'
 

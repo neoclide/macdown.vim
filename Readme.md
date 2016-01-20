@@ -6,6 +6,7 @@ Using applescript instead of a server to enhance the exprience of live preview.
 
 ## Features
 
+* Works out of box, all dependencies are optional.
 * Preview in Chrome with range and auto reload support.
 * Auto close Chrome tab on buffer delete and vim exit.
 * Async markdown parse.

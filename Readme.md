@@ -40,7 +40,8 @@ To toggle auto preview for current file, type:
 
     :PreviewAuto
 
-The chrome page would be refreshed on CursorHold and BufWrite
+The corresponding chrome tab would be activated and refreshed on CursorHold and
+BufWrite
 
 ## Configuration
 
@@ -57,7 +58,7 @@ dependencies:
 
 `sudo` might be required.
 
-You can also make your own parse, it's just create a excutable file inside
+You can also make your own parser, it's just create a excutable file inside
 `macdown.vim/bin` which accept markdown content from stdin and output html to
 stdout.
 

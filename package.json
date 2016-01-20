@@ -1,0 +1,11 @@
+{
+  "name": "macdown.vim",
+  "version": "0.1.0",
+  "description": "A simplified and flexible markdown solution for vim user on Mac",
+  "main": "index.js",
+  "scripts": {},
+  "author": "chemzqm@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+  }
+}

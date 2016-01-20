@@ -1,0 +1,33 @@
+#!/usr/bin/env osascript
+on run full_path
+
+if application "Google Chrome" is not running then
+	tell application "Google Chrome"
+		activate
+	end tell
+end if
+
+set findtab to false
+tell application "Google Chrome"
+	set window_list to every window
+	repeat with the_window in window_list
+		set tab_list to every tab in the_window
+		set num to 0
+		repeat with the_tab in tab_list
+			set num to num + 1
+			set the_url to the URL of the_tab
+			if the_url starts with full_path then
+				set active tab index of the_window to num
+				set findtab to true
+				tell the_tab
+					reload
+				end tell
+			end if
+		end repeat
+	end repeat
+	if not findtab then
+		open location full_path
+	end if
+end tell
+
+end run

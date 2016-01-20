@@ -1,0 +1,41 @@
+#!/usr/bin/env node
+
+var marked = require('../lib/markit')
+var fs = require('fs')
+var path = require('path')
+var template = fs.readFileSync(path.resolve(__dirname, '../lib/template.html'), 'utf8')
+var highlight = require('../lib/highlight/lib/index.js')
+var title = process.argv[2] || ''
+
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  gfm: true,
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: true,
+  smartLists: true,
+  smartypants: false,
+  highlight: function (code) {
+    try {
+      return highlight.highlightAuto(code).value;
+    } catch(e) {
+      return code
+    }
+  }
+})
+
+function stdin() {
+  var buf = ''
+  process.stdin.setEncoding('utf8')
+  process.stdin.on('data', function(chunk){
+    buf += chunk
+  })
+  process.stdin.on('end', function(){
+    var content = template.replace('${content}', marked(buf))
+    content = content.replace('${title}', title)
+    process.stdout.write(content)
+  }).resume()
+}
+
+stdin()

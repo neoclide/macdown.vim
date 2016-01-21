@@ -5,11 +5,12 @@ let did_macdown_loaded = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
+let s:focused = 1
 let s:programme = get(g:, 'macdown_marked_programme', 'marked')
 let s:marked = expand('<sfile>:p:h:h') . '/bin/' . s:programme
 
 function! s:Preview()
-  if get(b:, 'macdown_auto_preview', 0) == 0
+  if !get(b:, 'macdown_auto_preview', 0) || !s:focused
     return
   endif
   let dest = get(b:, 'macdown_dest', tempname())
@@ -54,6 +55,8 @@ augroup macdown
   autocmd CursorHold,CursorHoldI *.md,*.markdown,*.mkd call s:Preview()
   autocmd BufDelete *.md,*.markdown,*.mkd call macdown#closeTab(+expand('<abuf>'))
   autocmd VimLeave * call s:OnVimLeave()
+  autocmd FocusGained  * let s:focused = 1
+  autocmd FocusLost  * let s:focused = 0
 augroup end
 
 let &cpo = s:save_cpo

@@ -64,7 +64,7 @@ content = ''
 for line in sys.stdin:
     content = content + line
 
-html_content = md(unicode(content, 'utf-8'))
+html_content = md(content)
 
 with open(os.path.join(os.path.dirname(__file__), '../template/template-misaka.html'), 'r') as f:
     for line in f:

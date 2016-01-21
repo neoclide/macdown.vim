@@ -18,6 +18,22 @@ Note that for blockquote the actual text content starts at 4-columns in.
 > They can span multiple paragraphs,
 > if you like.
 
+Smartpants:
+
+Markdown     | HTML                         | Result
+------------ | -------------                | ------------
+'s           | &amp;rsquo;s                 | 's
+"Quotes"     | &amp;ldquo;Quotes&amp;rdquo; | "Quotes"
+`---`        | &amp;mdash;                  | ---
+`--`         | &amp;ndash;                  | --
+`...`        | &amp;hellip;                 | ...
+`. . .`      | &amp;hellip;                 | . . .
+`(c)`        | &amp;copy;                   | (c)
+`(r)`        | &amp;reg;                    | (r)
+`(tm)`       | &amp;trade;                  | (tm)
+`3/4`        | &amp;frac34;                 | 3/4
+`1/2`        | &amp;frac12;                 | 1/2
+`1/4`        | &amp;frac14;                 | 1/4
 
 An h2 header
 ------------

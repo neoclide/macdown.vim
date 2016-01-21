@@ -15,6 +15,10 @@ else:
     title = ''
 
 class HighlighterRenderer(m.HtmlRenderer):
+
+    def normal_text(self, text):
+        return m.smartypants(text)
+
     def blockcode(self, text, lang):
         lang = 'sh'
         lexer = get_lexer_by_name(lang, stripall=True)
@@ -22,7 +26,7 @@ class HighlighterRenderer(m.HtmlRenderer):
 
         return highlight(text, lexer, formatter)
 
-renderer = HighlighterRenderer()
+renderer = HighlighterRenderer(('skip-html',), 6)
 # http://misaka.61924.nl/#extensions
 md = m.Markdown(renderer, extensions=('tables', 'strikethrough', 'math', 'fenced-code', 'footnotes', 'autolink'))
 

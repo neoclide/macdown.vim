@@ -24,7 +24,6 @@ Markdown     | HTML                         | Result
 ------------ | -------------                | ------------
 's           | &amp;rsquo;s                 | 's
 "Quotes"     | &amp;ldquo;Quotes&amp;rdquo; | "Quotes"
-<<<<<<< HEAD
 `---`        | &amp;mdash;                  | ---
 `--`         | &amp;ndash;                  | --
 `...`        | &amp;hellip;                 | ...
@@ -35,18 +34,6 @@ Markdown     | HTML                         | Result
 `3/4`        | &amp;frac34;                 | 3/4
 `1/2`        | &amp;frac12;                 | 1/2
 `1/4`        | &amp;frac14;                 | 1/4
-=======
----          | &amp;mdash;                  | ---
---           | &amp;ndash;                  | --
-...          | &amp;hellip;                 | ...
-. . .        | &amp;hellip;                 | . . .
-(c)          | &amp;copy;                   | (c)
-(r)          | &amp;reg;                    | (r)
-(tm)         | &amp;trade;                  | (tm)
-3/4          | &amp;frac34;                 | 3/4
-1/2          | &amp;frac12;                 | 1/2
-1/4          | &amp;frac14;                 | 1/4
->>>>>>> dd4e51b0366eac22cc68a7407a2a3293bef1b8ef
 
 An h2 header
 ------------

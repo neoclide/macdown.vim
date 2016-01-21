@@ -17,21 +17,20 @@ else:
 toc = []
 
 def GenereateToc():
-    global toc
     if len(toc) == 0:
         return ''
     level = 0
     result = ''
     for item in toc:
-        if item.level > level:
-            result += '<ul>\n' * (item.level - level)
-        elif iterm.level < level:
-            result += '</ul>\n' * (level - item.level)
-        result += '<a href={link}>{head}</a>'.format(
-                link=item.link,
-                head=item.content)
-        level = item.level
-    return result + '<\ul>\n'*result
+        if item['level'] > level:
+            result += '<ul>\n' * (item['level'] - level)
+        elif item['level'] < level:
+            result += '</ul>\n' * (level - item['level'])
+        result += '<li><a href="#{link}">{head}</a></li>'.format(
+            link=item['link'],
+            head=item['content'])
+        level = item['level']
+    return result + '</ul>\n'*level
 
 class HighlighterRenderer(m.HtmlRenderer):
 
@@ -62,12 +61,15 @@ content = ''
 for line in sys.stdin:
     content = content + line
 
+html_content = md(content)
+
 with open(os.path.join(os.path.dirname(__file__), '../template/template-misaka.html'), 'r') as f:
     for line in f:
         if '${title}' in line:
             print(line.replace('${title}', title, 1), end='')
         elif '${content}' in line:
-            print(line.replace('${content}', md(content), 1), end='')
+            print(line.replace('${content}', html_content, 1), end='')
+        elif '${toc}' in line:
+            print(line.replace('${toc}', GenereateToc(), 1), end='')
         else:
             print(line, end='')
-    #print(GenereateToc())

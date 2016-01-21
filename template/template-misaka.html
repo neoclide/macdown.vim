@@ -23,7 +23,7 @@ blockquote {
   padding: 0 1em;
 }
 .container{
-  max-width:960px;
+  max-width:680px;
   margin:30px auto;
 }
 code{
@@ -48,6 +48,10 @@ table th, table td {
 }
 table tr:nth-child(2n) {
   background-color: #f8f8f8;
+}
+.toc {
+  position: absolute;
+  right: 100px;
 }
 .highlight {
  border-radius: 5px;
@@ -115,6 +119,7 @@ background-color: #f7f7f7; }
   </style>
 </head>
 <body>
+<div class="toc">${toc}</div>
 <div class="container">
 ${content}
 </div>

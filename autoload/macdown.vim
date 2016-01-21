@@ -12,7 +12,7 @@ function! macdown#preview(programme, dest, ...) abort
   call writefile(list, tmp)
   let title = expand('%:t')
   let commands = ['cat ' . tmp . '|'
-              \. a:programme . ' ' . title . '>' . a:dest
+              \. a:programme . ' ' . title . '>' . a:dest . ' 2>&1'
               \, s:chrome_load . '  file://' . a:dest]
   let execute_file = tempname()
   call writefile(commands, execute_file)

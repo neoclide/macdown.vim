@@ -108,7 +108,7 @@ parse, it's using Python and almost 4x times faster than 'marked'
 
 Note: misaka need some python dependencies to work, you can install them via:
 >
-	pip install houdini misaka pygments
+	pip install misaka pygments
 
 `sudo` might be required
 

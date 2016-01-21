@@ -57,7 +57,7 @@ you can use [misaka](https://github.com/FSX/misaka) by set global variable:
 It's almost 4 times faster than markit, but you need to install python
 dependencies:
 
-    pip install houdini misaka pygments
+    pip install misaka pygments
 
 `sudo` might be required.
 

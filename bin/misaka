@@ -4,7 +4,6 @@ from __future__ import print_function
 import re
 import sys
 import os
-import houdini as h
 import misaka as m
 from pygments import highlight
 from pygments.formatters import HtmlFormatter
@@ -17,10 +16,7 @@ else:
 
 class HighlighterRenderer(m.HtmlRenderer):
     def blockcode(self, text, lang):
-        if not lang:
-            return '\n<pre><code>{}</code></pre>\n'.format(
-                h.escape_html(text.strip()))
-
+        lang = 'sh'
         lexer = get_lexer_by_name(lang, stripall=True)
         formatter = HtmlFormatter()
 
@@ -28,7 +24,7 @@ class HighlighterRenderer(m.HtmlRenderer):
 
 renderer = HighlighterRenderer()
 # http://misaka.61924.nl/#extensions
-md = m.Markdown(renderer, extensions=('tables', 'strikethrough', 'fenced-code', 'footnotes', 'autolink'))
+md = m.Markdown(renderer, extensions=('tables', 'strikethrough', 'math', 'fenced-code', 'footnotes', 'autolink'))
 
 content = ''
 for line in sys.stdin:

@@ -27,7 +27,8 @@ class HighlighterRenderer(m.HtmlRenderer):
         return highlight(text, lexer, formatter)
 
 renderer = HighlighterRenderer()
-md = m.Markdown(renderer, extensions=('tables', 'fenced-code', 'footnotes', 'autolink'))
+# http://misaka.61924.nl/#extensions
+md = m.Markdown(renderer, extensions=('tables', 'strikethrough', 'fenced-code', 'footnotes', 'autolink'))
 
 content = ''
 for line in sys.stdin:

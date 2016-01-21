@@ -53,9 +53,9 @@ INSTALLATION				*macdown-installation*
 Install with your favorite plugin managers like NeoBundle/Plugin/Plug
 >
 >
-	NeoBundle 'chemzqm/vim-iterm2-start'
-	Plugin 'chemzqm/vim-iterm2-start'
-	Plug 'chemzqm/vim-iterm2-start'
+	NeoBundle 'chemzqm/macdown.vim'
+	Plugin 'chemzqm/macdown.vim'
+	Plug 'chemzqm/macdown.vim'
 
 |vimproc| is requried to do the async markdown parse job, it would be
 installed via |vim-plug|:

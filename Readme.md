@@ -1,7 +1,6 @@
 # Macdown.vim
 
 A simplified and flexible markdown preview for vim user on Mac.
-
 Using applescript instead of a server to enhance the exprience of live preview.
 
 You can get the style preview [here](https://chemzqm.me/static/sample.html)
@@ -14,7 +13,8 @@ You can get the style preview [here](https://chemzqm.me/static/sample.html)
 * Async markdown parse.
 * Tables, GFM enabled, code highlight and footnote enabled by default.
 * Misaka parser support [smartypants](http://misaka.61924.nl/#misaka.smartypants),
-toc (table of content),
+toc (table of content)
+* Unicode support
 
 ## Install
 

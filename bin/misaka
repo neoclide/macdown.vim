@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 from __future__ import print_function
 import re
@@ -8,6 +9,8 @@ import misaka as m
 from pygments import highlight
 from pygments.formatters import HtmlFormatter
 from pygments.lexers import get_lexer_by_name
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 if len(sys.argv) > 1:
     title = sys.argv[1]
@@ -53,7 +56,7 @@ class HighlighterRenderer(m.HtmlRenderer):
 
         return highlight(text, lexer, formatter)
 
-renderer = HighlighterRenderer(('skip-html',), 6)
+renderer = HighlighterRenderer(('skip-html',))
 # http://misaka.61924.nl/#extensions
 md = m.Markdown(renderer, extensions=('tables', 'strikethrough', 'math', 'fenced-code', 'footnotes', 'autolink'))
 
@@ -61,7 +64,7 @@ content = ''
 for line in sys.stdin:
     content = content + line
 
-html_content = md(content)
+html_content = md(unicode(content, 'utf-8'))
 
 with open(os.path.join(os.path.dirname(__file__), '../template/template-misaka.html'), 'r') as f:
     for line in f:

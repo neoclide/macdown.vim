@@ -14,10 +14,38 @@ if len(sys.argv) > 1:
 else:
     title = ''
 
+toc = []
+
+def GenereateToc():
+    global toc
+    if len(toc) == 0:
+        return ''
+    level = 0
+    result = ''
+    for item in toc:
+        if item.level > level:
+            result += '<ul>\n' * (item.level - level)
+        elif iterm.level < level:
+            result += '</ul>\n' * (level - item.level)
+        result += '<a href={link}>{head}</a>'.format(
+                link=item.link,
+                head=item.content)
+        level = item.level
+    return result + '<\ul>\n'*result
+
 class HighlighterRenderer(m.HtmlRenderer):
 
     def normal_text(self, text):
         return m.smartypants(text)
+
+    def header(self, content, level):
+        global toc
+        n = str(len(toc) + 1)
+        toc = toc + [{'level': level, 'content': content, 'link': 'toc_' + n}]
+        return str('<h{level} id="toc_{n}">{content}</h{level}>').format(
+                level=level,
+                content=content,
+                n=n)
 
     def blockcode(self, text, lang):
         lang = 'sh'
@@ -42,3 +70,4 @@ with open(os.path.join(os.path.dirname(__file__), '../template/template-misaka.h
             print(line.replace('${content}', md(content), 1), end='')
         else:
             print(line, end='')
+    #print(GenereateToc())

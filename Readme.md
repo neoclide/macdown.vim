@@ -13,6 +13,8 @@ You can get the style preview [here](https://chemzqm.me/static/sample.html)
 * Auto close Chrome tab on buffer delete and vim exit.
 * Async markdown parse.
 * Tables, GFM enabled, code highlight and footnote enabled by default.
+* Misaka parser support [smartypants](http://misaka.61924.nl/#misaka.smartypants),
+toc (table of content),
 
 ## Install
 
@@ -51,13 +53,13 @@ BufWrite. A handy remap could be:
 ## Configuration
 
 By default `macdown.vim` using [markit](https://github.com/lepture/markit) for
-markdown parsing, it's already copied inside this repository, but if need speed,
-you can use [misaka](https://github.com/FSX/misaka) by set global variable:
+markdown parsing, it's exists inside this repository, but if you need speed and
+more future, you can set global variable:
 
     let g:macdown_marked_programme = 'misaka'
 
-It's almost 4 times faster than markit, but you need to install python
-dependencies:
+To enable misaka parse, it's almost 4 times faster than markit, but you need to
+install python dependencies:
 
     pip install misaka pygments
 

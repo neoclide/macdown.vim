@@ -4,6 +4,8 @@ A simplified and flexible markdown preview for vim user on Mac.
 
 Using applescript instead of a server to enhance the exprience of live preview.
 
+You can get the style preview [here](https://chemzqm.me/static/sample.html)
+
 ## Features
 
 * Works out of box, all dependencies are optional.

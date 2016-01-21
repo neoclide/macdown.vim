@@ -13,8 +13,7 @@ You can get the style preview [here](https://chemzqm.me/static/sample.html)
 * Async markdown parse.
 * Tables, GFM enabled, code highlight and footnote enabled by default.
 * Misaka parser support [smartypants](http://misaka.61924.nl/#misaka.smartypants),
-toc (table of content)
-* Unicode support
+toc (table of content) and unicode (including Emoji)
 
 ## Install
 

@@ -4,6 +4,7 @@ on run full_path
 if application "Google Chrome" is not running then
 	tell application "Google Chrome"
 		activate
+    delay 0.2
 	end tell
 end if
 

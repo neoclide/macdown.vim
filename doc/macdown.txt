@@ -1,4 +1,9 @@
 *macdown.txt*		Live preview markdown in Chrome using applescript
+					  __~
+		____ ___  ____ __________/ /___ _      ______~
+	       / __ `__ \/ __ `/ ___/ __  / __ \ | /| / / __ \~
+	      / / / / / / /_/ / /__/ /_/ / /_/ / |/ |/ / / / /~
+	     /_/ /_/ /_/\__,_/\___/\__,_/\____/|__/|__/_/ /_/~
 
 Author		: Qiming Zhao <chemzqm@gmail.com>
 Version		: 0.1.0
@@ -45,7 +50,9 @@ INTRODUCTION				*macdown-introduction*
 Macdown.vim using simple mechanism instead of a live server to provide a
 better experience of preview markdown file in Chrome.
 
-It's very easy to understand and hack.
+The default markdown parse is markit, it's slow but doesn't require any package
+installation, you can speed up easily by using misaka, which is almost 4x
+times faster, see |macdown=variables|.
 
 ==============================================================================
 INSTALLATION				*macdown-installation*
@@ -57,18 +64,16 @@ Install with your favorite plugin managers like NeoBundle/Plugin/Plug
 	Plugin 'chemzqm/macdown.vim'
 	Plug 'chemzqm/macdown.vim'
 
-|vimproc| is requried to do the async markdown parse job, it would be
-installed via |vim-plug|:
+|vimproc| is optional required to do the async markdown parse job, the easiest
+way to install it is via |vim-plug|:
 
 	Plug 'Shougo/vimproc.vim',{'do', 'yes\|make'}
-
-Follow the installation guide of |vimproc| if you got problem during
-installation.
 
 ==============================================================================
 REQUIREMENT				*macdown-requirement*
 
-You have to install | Nodejs | https: //nodejs.org if you use default markdown parser.
+You have to install | Nodejs | https: //nodejs.org if you use default markdown
+parser.
 
 ==============================================================================
 INTERFACE				*macdown-interface*

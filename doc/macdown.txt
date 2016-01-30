@@ -52,7 +52,7 @@ better experience of preview markdown file in Chrome.
 
 The default markdown parse is markit, it's slow but doesn't require any package
 installation, you can speed up easily by using misaka, which is almost 4x
-times faster, see |macdown=variables|.
+times faster, see |macdown-variables|.
 
 ==============================================================================
 INSTALLATION				*macdown-installation*

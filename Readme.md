@@ -7,10 +7,11 @@ You can get the style preview [here](https://chemzqm.me/static/sample.html)
 
 ## Features
 
+* No python, no server, much better performance.
+* Async markdown parse when possible (using jobstart of nvim/vim or vimproc)
 * Works out of box, all dependencies are optional.
 * Preview in Chrome with range and auto reload support.
 * Auto close Chrome tab on buffer delete and vim exit.
-* Async markdown parse.
 * Tables, GFM enabled, code highlight and footnote enabled by default.
 * Misaka parser support [smartypants](http://misaka.61924.nl/#misaka.smartypants),
 toc (table of content) and unicode (including Emoji)
@@ -21,8 +22,8 @@ Take [vundle](https://github.com/VundleVim/Vundle.vim) as example:
 
     Plugin 'chemzqm/macdown.vim'
 
-If you need async markdown parse, just install
-[vimproc.vim](https: //github.com/Shougo/vimproc.vim)
+If you need async markdown parse, and you don't have jobstart function in you
+current vim ,you need to install [vimproc.vim](https: //github.com/Shougo/vimproc.vim)
 
     Plugin 'Shougo/vimproc.vim'
 
@@ -70,4 +71,6 @@ stdout.
 
 ## TODO
 
-* Scrollbind for vim and Chrome
+* Scrollbind for vim and Chrome (vim doesn't support Scroll autocmd, bind
+  CurseMove would be rediculious for me)
+

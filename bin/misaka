@@ -5,7 +5,10 @@ from __future__ import print_function
 import re
 import sys
 import os
+import base64
+import mimetypes
 import misaka as m
+from urlparse import urlsplit
 from pygments import highlight
 from pygments.formatters import HtmlFormatter
 from pygments.lexers import get_lexer_by_name
@@ -48,6 +51,29 @@ class HighlighterRenderer(m.HtmlRenderer):
                 level=level,
                 content=content,
                 n=n)
+
+    def image (self, link, title, alt):
+        url_parts = urlsplit(link)
+
+        if not url_parts.scheme or not url_parts.netloc:
+            imgpath = os.path.normpath(os.path.join(sys.argv[2], link))
+            mime, _ = mimetypes.guess_type(imgpath)
+
+            with open(imgpath, "rb") as image_file:
+                encoded_image = base64.b64encode(image_file.read())
+
+                return str('<img src="data:{mime};base64,{encoded_image}" alt="{alt}" title="{title}" />').format(
+                            mime=mime,
+                            encoded_image=encoded_image,
+                            alt=alt,
+                            title=title
+                        )
+        else:
+            return str('<img src="{link}" alt="{alt}" title="{title}" />').format(
+                    link=link,
+                    alt=alt,
+                    title=title
+                    )
 
     def blockcode(self, text, lang):
         lang = 'sh'

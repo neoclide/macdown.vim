@@ -11,8 +11,9 @@ function! macdown#preview(programme, dest, ...) abort
   let tmp = tempname()
   call writefile(list, tmp)
   let title = expand('%:t')
+  let path = expand('%:p:h')
   let commands = ['cat ' . tmp . '|'
-              \. a:programme . ' ' . title . ' &>' . a:dest
+              \. a:programme . ' ' . title . ' ' . path .' &>' . a:dest
               \, s:chrome_load . '  file://' . a:dest]
   let execute_file = tempname()
   call writefile(commands, execute_file)

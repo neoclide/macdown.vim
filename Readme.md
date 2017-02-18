@@ -65,9 +65,11 @@ install python dependencies:
 
 `sudo` might be required.
 
-You can also make your own parser, it's just create a excutable file inside
-`macdown.vim/bin` which accept markdown content from stdin and output html to
-stdout.
+You can also make your own parser, just create a excutable file that
+accepts markdown content from stdin and output html to stdout, then 
+configure `g:macdown_external_programme` to the path of the file:
+
+    let g:macdown_external_programme = '~/my-parser'
 
 ## TODO
 

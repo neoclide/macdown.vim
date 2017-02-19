@@ -7,7 +7,12 @@ set cpo&vim
 
 let s:focused = 1
 let s:programme = get(g:, 'macdown_marked_programme', 'marked')
-let s:marked = expand('<sfile>:p:h:h') . '/bin/' . s:programme
+
+if !exists('g:macdown_external_programme')
+  let s:marked = expand('<sfile>:p:h:h') . '/bin/' . s:programme
+else
+  let s:marked = get(g:, 'macdown_external_programme', 0)
+endif
 
 function! s:Preview()
   if !get(b:, 'macdown_auto_preview', 0) || !s:focused

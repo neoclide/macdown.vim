@@ -56,7 +56,7 @@ function! s:Macdown_Job_Nvim_Exit(job, status, dest, out, err)
   if s:job != a:job | return | endif
   let s:job = 0
   for msg in a:err
-    echoerr msg
+    if !empty(msg) | echoerr msg | endif
   endfor
   call writefile(a:out, a:dest)
   call jobstart(s:chrome_load . ' file://' . a:dest)

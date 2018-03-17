@@ -14,7 +14,8 @@ function! s:Preview()
     return
   endif
   let dest = get(b:, 'macdown_dest', tempname())
-  silent call macdown#preview(s:marked, dest)
+  let parser = get(g:, 'macdown_external_programme', s:marked)
+  silent call macdown#preview(parser, dest)
 endfunction
 
 function! s:AutoPreview()

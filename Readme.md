@@ -7,7 +7,7 @@ You can get the style preview [here](https://chemzqm.me/static/sample.html)
 
 ## Features
 
-* No python, no server, much better performance.
+* No server, much better performance.
 * Async markdown parse when possible (using jobstart of nvim/vim or vimproc)
 * Works out of box, all dependencies are optional.
 * Preview in Chrome with range and auto reload support.
@@ -21,11 +21,6 @@ toc (table of content) and unicode (including Emoji)
 Take [vundle](https://github.com/VundleVim/Vundle.vim) as example:
 
     Plugin 'chemzqm/macdown.vim'
-
-If you need async markdown parse, and you don't have jobstart function in you
-current vim ,you need to install [vimproc.vim](https: //github.com/Shougo/vimproc.vim)
-
-    Plugin 'Shougo/vimproc.vim'
 
 ## Usage
 
@@ -45,8 +40,8 @@ To toggle auto preview for current file, type:
 
     :PreviewAuto
 
-The corresponding chrome tab would be activated and refreshed on CursorHold and
-BufWrite. A handy remap could be:
+The corresponding chrome tab would be activated and refreshed on TextChanged and
+TextChangedI. A handy remap could be:
 
     nnoremap <C-p> :PreviewAuto<CR>
 
@@ -73,4 +68,3 @@ stdout.
 
 * Scrollbind for vim and Chrome (vim doesn't support Scroll autocmd, bind
   CurseMove would be rediculious for me)
-

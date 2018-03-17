@@ -6,8 +6,8 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 let s:focused = 1
-let s:programme = get(g:, 'macdown_marked_programme', 'marked')
-let s:marked = expand('<sfile>:p:h:h') . '/bin/' . s:programme
+let s:prog = get(g:, 'macdown_marked_programme', 'marked')
+let s:marked = expand('<sfile>:p:h:h') . '/bin/' . s:prog
 
 function! s:Preview()
   if !get(b:, 'macdown_auto_preview', 0) || !s:focused
@@ -51,8 +51,7 @@ endfunction
 augroup macdown
   autocmd!
   autocmd FileType markdown call s:SetMarkdownCommand()
-  autocmd BufWrite *.md,*.markdown,*.mkd call s:Preview()
-  autocmd CursorHold,CursorHoldI *.md,*.markdown,*.mkd call s:Preview()
+  autocmd TextChanged,TextChangedI *.md,*.markdown,*.mkd call s:Preview()
   autocmd BufDelete *.md,*.markdown,*.mkd call macdown#closeTab(+expand('<abuf>'))
   autocmd VimLeave * call s:OnVimLeave()
   autocmd FocusGained  * let s:focused = 1

@@ -1,5 +1,9 @@
 # Macdown.vim
 
+[![](http://img.shields.io/github/issues/neoclide/macdown.vim.svg)](https://github.com/neoclide/macdown.vim/issues)
+[![](http://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![](https://img.shields.io/badge/doc-%3Ah%20macdown.txt-red.svg)](doc/macdown.txt)
+
 A simplified and flexible markdown preview for vim user on Mac.
 Using applescript instead of a server to enhance the exprience of live preview.
 

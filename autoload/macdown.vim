@@ -4,8 +4,8 @@ let s:job = 0
 
 function! macdown#preview(prog, dest, ...) abort
   let b:macdown_dest = a:dest
-  let start = a:0 == 2 ? a:1 : 1
-  let end = a:0 == 2 ? a:2 : '$'
+  let start = get(a:, 1, 1)
+  let end = get(a:, 2, '$')
   if exists('*jobstart')
     call s:Macdown_Exec_Async_Nvim(a:prog, a:dest, start, end)
   elseif exists('*job_start')
@@ -20,7 +20,7 @@ function! macdown#preview(prog, dest, ...) abort
                 \, s:chrome_load . '  file://' . a:dest]
     let execute_file = tempname()
     call writefile(commands, execute_file)
-    let output =  system('bash ' . execute_file)
+    let output = system('bash ' . execute_file)
     if v:shell_error && output !=# ""
       echohl Error | echon output | echohl None
       return

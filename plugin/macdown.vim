@@ -15,7 +15,22 @@ function! s:Preview()
   endif
   let dest = get(b:, 'macdown_dest', tempname())
   let parser = get(g:, 'macdown_external_programme', s:marked)
-  silent call macdown#preview(parser, dest)
+  let start = s:GetStartline()
+  silent call macdown#preview(parser, dest, start, '$')
+endfunction
+
+function! s:GetStartline()
+  let line = getline(1)
+  if line !~ '^---' | return 1 | endif
+  let l:i = 2
+  while l:i <= line('$')
+    let line = getline(l:i)
+    if line =~ '^---'
+      return l:i + 1
+    endif
+    let l:i = l:i + 1
+  endw
+  return 1
 endfunction
 
 function! s:AutoPreview()

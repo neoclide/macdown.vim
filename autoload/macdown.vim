@@ -6,6 +6,9 @@ function! macdown#preview(prog, dest, ...) abort
   let b:macdown_dest = a:dest
   let start = get(a:, 1, 1)
   let end = get(a:, 2, '$')
+  if start == 1 && getline(1) =~ '<!--'
+    let start = 2
+  endif
   if exists('*jobstart')
     call s:Macdown_Exec_Async_Nvim(a:prog, a:dest, start, end)
   elseif exists('*job_start')

@@ -13,7 +13,7 @@ function! s:Preview()
   if !get(b:, 'macdown_auto_preview', 0) || !s:focused
     return
   endif
-  let dest = get(b:, 'macdown_dest', tempname())
+  let dest = get(b:, 'macdown_dest', tempname().'.html')
   let parser = get(g:, 'macdown_external_programme', s:marked)
   let start = s:GetStartline()
   silent call macdown#preview(parser, dest, start, '$')
@@ -45,7 +45,7 @@ function! s:AutoPreview()
 endfunction
 
 function! s:VisualPreview(start, end)
-  let dest = get(b:, 'macdown_dest', tempname())
+  let dest = get(b:, 'macdown_dest', tempname().'.html')
   call macdown#preview(s:marked, dest, a:start, a:end)
 endfunction
 
